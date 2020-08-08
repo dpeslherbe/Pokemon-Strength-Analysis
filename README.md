@@ -19,20 +19,30 @@ Results (2 Clusters)
 Running our code separates our dataset into two clusters, separated by colours (red being the second cluster, and black being the first) on the following graphs which compare different attributes against each other (health vs attacks, health vs defence, and so on...)
  We notice from the cluster means that the first cluster correspond to Pokémon that are on the higher end of the variables (positive average cluster means for each of hp, attack, defense, sp_attack, sp_defense, and speed).
 However, this only separates strong Pokémon from weak Pokémon. The issue this brings is that most of first cluster Pokémon are usually either the last Evolution or Mega-Evolution of weaker Pokémon; thus, while the average silhouette score is highest when there are 2 clusters, this is not enough to cluster Pokémon for decision making for competitive Pokémon Trainers. Then, to remedy this, we reuse our silhouettescore( ) function, but using k clusters ranging from 5 to 25 instead. The best value for cluster numbers is then 6.
+
 Cluster Health      Attack      Defense     Sp. Attack   Sp. Defense  Speed
+
 1       0.4952192   0.5300545   0.4840779   0.5136510    0.5449158    0.3930374
+
 2       -0.6261141  -0.6701571  -0.6120280  -0.6494177   -0.6889465   -0.4969239
 
 Results (6 Clusters)
 
 This time around, the graphs are as follows; (with black representing the first cluster, red representing the second, green representing the third, dark blue representing the fourth, light blue representing the fifth, and lilac representing the sixth).
 We see that the clusters seem to correspond to Pokémon with specific stat differences. From the cluster means, we have the following average for each variable according to clusters:
+
 Cluster Health       Attack       Defense     Sp. Attack    Sp. Defense  Speed
+
 1       -0.99301457  -1.04617375  -1.0547421  -0.826741073  -0.99695878  -0.4721187
+
 2       -0.36316077  -0.38754276  -0.2727654  -0.577229611  -0.50481763  -0.6724617
+
 3       1.31017450   0.60454396   0.2477921   -0.008192179  0.18887565   -0.3118777
+
 4       -0.16812378  0.08094902   1.4814636   0.081438126   0.91156089   -0.5497746
+
 5       -0.04680911  0.24415377   -0.2440637  0.437618752   0.04878462   1.1131722
+
 6       0.92175938   1.09495521   0.7294563   1.447424997   1.18608246   0.9190101
 
 Thus, we notice for example that the first cluster regroups only the weakest Pokémon with very low averages in all statistical categories (trainers will want to avoid using these Pokémon in a competitive setting, unless they have an Evolution that falls into a better cluster and are battling their way into the Evolution). The second cluster regroups another set of weak Pokémon; however the Pokémon in this cluster have higher average stats in every category than the first cluster, with speed being the exception. We can then infer that the first cluster consists of smaller weak Pokémon, whereas the second regroups larger weak Pokémon. Thus we name the first cluster the Small Weak, and the second cluster the Big Weak.
